@@ -2,7 +2,7 @@ name: test
 
 on:
    push:
-      branches: [master]
+      branches: [master, fix_ci]
    pull_request:
       branches: [master]
 
@@ -14,6 +14,8 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
+         - name: Install dependencies
+           run: sudo apt-get install libpango
          - name: Set up
            uses: actions-rs/toolchain@v1
            with:
